@@ -1,0 +1,197 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<stetic-interface>
+  <configuration>
+    <images-root-path>..</images-root-path>
+    <target-gtk-version>2.12</target-gtk-version>
+  </configuration>
+  <import>
+    <widget-library name="glade-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
+    <widget-library name="../bin/Debug/MyFinance.exe" internal="true" />
+  </import>
+  <icon-factory>
+    <icon-set id="gtk-dialog-question">
+      <source>
+        <property name="Image">stock:gtk-dialog-question Menu</property>
+      </source>
+    </icon-set>
+    <icon-set id="gtk-apply">
+      <source>
+        <property name="Image">stock:gtk-apply Menu</property>
+      </source>
+    </icon-set>
+    <icon-set id="gtk-dialog-error">
+      <source>
+        <property name="Image">stock:gtk-dialog-error Menu</property>
+      </source>
+    </icon-set>
+  </icon-factory>
+  <widget class="Gtk.Window" id="MainWindow" design-size="779 457">
+    <property name="MemberName" />
+    <property name="Title" translatable="yes">MainWindow</property>
+    <property name="WindowPosition">CenterOnParent</property>
+    <signal name="DeleteEvent" handler="OnDeleteEvent" />
+    <child>
+      <widget class="Gtk.Fixed" id="fixed1">
+        <property name="MemberName" />
+        <property name="Tooltip" translatable="yes">Logo</property>
+        <property name="HasWindow">False</property>
+        <child>
+          <widget class="Gtk.Image" id="imgLogo">
+            <property name="MemberName" />
+            <property name="Tooltip" translatable="yes">Logo</property>
+            <property name="Xalign">0</property>
+          </widget>
+          <packing>
+            <property name="X">6</property>
+            <property name="Y">7</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Label" id="lblIntroText">
+            <property name="MemberName" />
+            <property name="LabelProp" translatable="yes">lblIntroText</property>
+          </widget>
+          <packing>
+            <property name="X">67</property>
+            <property name="Y">94</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Image" id="imgLogo2">
+            <property name="MemberName" />
+          </widget>
+          <packing>
+            <property name="X">70</property>
+            <property name="Y">117</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Label" id="lblEmail">
+            <property name="MemberName" />
+            <property name="LabelProp" translatable="yes">lblEmail</property>
+          </widget>
+          <packing>
+            <property name="X">17</property>
+            <property name="Y">192</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Entry" id="eEmail">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="IsEditable">True</property>
+            <property name="InvisibleChar">●</property>
+          </widget>
+          <packing>
+            <property name="X">75</property>
+            <property name="Y">190</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Label" id="lblPassword">
+            <property name="MemberName" />
+            <property name="LabelProp" translatable="yes">lblPassword</property>
+          </widget>
+          <packing>
+            <property name="X">11</property>
+            <property name="Y">233</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Entry" id="ePassword">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="IsEditable">True</property>
+            <property name="InvisibleChar">●</property>
+          </widget>
+          <packing>
+            <property name="X">86</property>
+            <property name="Y">229</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Button" id="btnSubmit">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="Type">TextOnly</property>
+            <property name="Label" translatable="yes">btnSubmit</property>
+            <property name="UseUnderline">True</property>
+            <signal name="Clicked" handler="BtnSubmit_Click" />
+          </widget>
+          <packing>
+            <property name="X">90</property>
+            <property name="Y">260</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Label" id="lblIntroText2">
+            <property name="MemberName" />
+            <property name="LabelProp" translatable="yes">lblIntroText2</property>
+          </widget>
+          <packing>
+            <property name="X">131</property>
+            <property name="Y">121</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.ProgressBar" id="pbLoading">
+            <property name="MemberName" />
+          </widget>
+          <packing>
+            <property name="X">344</property>
+            <property name="Y">209</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Image" id="imgEmailValid">
+            <property name="MemberName" />
+          </widget>
+          <packing>
+            <property name="X">237</property>
+            <property name="Y">193</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Image" id="imgPasswordValid">
+            <property name="MemberName" />
+          </widget>
+          <packing>
+            <property name="X">246</property>
+            <property name="Y">234</property>
+          </packing>
+        </child>
+        <child>
+          <placeholder />
+        </child>
+        <child>
+          <widget class="Gtk.ScrolledWindow" id="tvScrolllWindow">
+            <property name="MemberName" />
+            <property name="ShadowType">In</property>
+            <child>
+              <widget class="Gtk.TextView" id="tvIntroText">
+                <property name="MemberName" />
+                <property name="CanFocus">True</property>
+                <property name="ShowScrollbars">True</property>
+                <property name="Text" translatable="yes">Welcome to MyFinance!
+
+Some Text Goes Here!!</property>
+              </widget>
+            </child>
+          </widget>
+          <packing>
+            <property name="X">524</property>
+            <property name="Y">108</property>
+          </packing>
+        </child>
+      </widget>
+    </child>
+  </widget>
+  <widget class="Gtk.Window" id="MyFinance.Home" design-size="400 300">
+    <property name="MemberName" />
+    <property name="Title" translatable="yes">Home</property>
+    <property name="WindowPosition">CenterOnParent</property>
+    <child>
+      <placeholder />
+    </child>
+  </widget>
+</stetic-interface>
