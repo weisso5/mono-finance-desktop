@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Xml;
 using Gdk;
 using Gtk;
@@ -132,10 +133,11 @@ public partial class MainWindow : Gtk.Window
 					{
 						for (int i = 0; i < entries.Count;i++)
 						{
-							Portfolio aPortfolio = new Portfolio(entries.Item(i));
+							Portfolio aPortfolio = new Portfolio(entries.Item(i).OuterXml);
 							UserItems.Instance.Portfolios.Add(aPortfolio);
+							
 						}
-						log.DebugFormat("Found {0} Portfolios",aPortfolio.Count);
+						log.DebugFormat("Found {0} Portfolios",UserItems.Instance.Portfolios.Count);
 					}
 					else
 					{
@@ -147,6 +149,18 @@ public partial class MainWindow : Gtk.Window
 					//2. Organize Data
 					//3. Cache Data
 					//4. Load Portfolio window
+					
+					//Load Positions for each Portfolio
+					List<XmlDocument> feedDataXMLs = new List<XmlDocument>();
+					for(int i = 0;i< UserItems.Instance.Portfolios.Count; i++)
+					{
+						Portfolio p = UserItems.Instance.Portfolios[i];
+						log.DebugFormat("DataGet for Positions on Portfolio {0}", p.ID);
+						feedDataXMLs.Add(getUtility.DataGet(Google.FINANCE_BASE_URL + "/portfolios/" + p.ID + "/positions","returns=true&transactions=true" ));
+					}
+					log.DebugFormat("Got {0} Positions",feedDataXMLs.Count);
+					
+					
 				}
 				else
 				{

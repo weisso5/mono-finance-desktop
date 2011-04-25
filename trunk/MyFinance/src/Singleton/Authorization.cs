@@ -3,6 +3,12 @@ namespace MyFinance
 {
 	/// <summary>
 	/// Singleton implementing Double Checked Locking
+	/// 
+	/// Holds:
+	/// Auth Token
+	/// Auth_User
+	/// 
+	/// 
 	/// </summary>
 	public sealed class Authorization
 	{
