@@ -135,6 +135,7 @@ public partial class MainWindow : Gtk.Window
 							Portfolio aPortfolio = new Portfolio(entries.Item(i));
 							UserItems.Instance.Portfolios.Add(aPortfolio);
 						}
+						log.DebugFormat("Found {0} Portfolios",aPortfolio.Count);
 					}
 					else
 					{
@@ -142,6 +143,10 @@ public partial class MainWindow : Gtk.Window
 					}
 					
 					//TODO XXX
+					//1. Get all Data in Portfolios
+					//2. Organize Data
+					//3. Cache Data
+					//4. Load Portfolio window
 				}
 				else
 				{
