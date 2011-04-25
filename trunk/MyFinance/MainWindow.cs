@@ -121,13 +121,25 @@ public partial class MainWindow : Gtk.Window
 				namespaces.AddNamespace("gd","http://schemas.google.com/g/2005");
 				
 				string[] id = xdoc.DocumentElement.GetElementsByTagName("id").Item(0).InnerText.Replace("http://","").Split('/');
-//				id = id.Substring(id.IndexOf("feed/"),id.IndexOf("/portfolio"));
-				//XXXX HERE
+				Authorization.Instance.Auth_User = id[3]; //HACK
 				
 				pbLoading.Pulse();
 				if(xdoc != null && xdoc.HasChildNodes)
 				{
 					log.DebugFormat("Portfolios Get returned {0} nodes",xdoc.ChildNodes.Count);
+					XmlNodeList entries = xdoc.GetElementsByTagName("entry");
+					if(entries.Count > 0)
+					{
+						for (int i = 0; i < entries.Count;i++)
+						{
+							Portfolio aPortfolio = new Portfolio(entries.Item(i));
+							UserItems.Instance.Portfolios.Add(aPortfolio);
+						}
+					}
+					else
+					{
+						//QUESTION Create Portfolio?
+					}
 					
 					//TODO XXX
 				}
@@ -158,6 +170,8 @@ public partial class MainWindow : Gtk.Window
 			pbLoading.Visible = false;
 			pbLoading.Fraction = 0;
 			ePassword.Text = string.Empty;
+			ePassword.IsEditable = true;
+			eEmail.IsEditable = true;
 		}
 		
 	}
